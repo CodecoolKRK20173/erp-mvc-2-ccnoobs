@@ -78,8 +78,16 @@ def get_available_items(table):
     Returns:
         list: list of lists (the inner list contains the whole row with their actual data types)
     """
-
-    # your code
+    avaiable_items = []
+    for entry in table:
+        entry[3] = int(entry[3])
+        entry[4] = int(entry[4])
+        entry_year = entry[3]
+        entry_durability = entry[4]
+        entry_age = 2017 - entry_year
+        if entry_age <= entry_durability:
+            avaiable_items.append(entry)
+    return avaiable_items
 
 
 def get_average_durability_by_manufacturers(table):
