@@ -22,3 +22,8 @@ def generate_random(table):
     # your code
 
     return generated
+
+def add(table, record):
+    table.append(record)
+
+    return table
