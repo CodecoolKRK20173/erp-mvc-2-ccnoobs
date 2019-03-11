@@ -105,5 +105,20 @@ def avg_amount(table, year):
     Returns:
         number
     """
+    item_count = 0
+    total_profit = 0
+    for entry in table:
+        entry_year = int(entry[3])
+        if entry_year == year:
+            item_count += 1
+            entry_type = entry[4]
+            entry_profit = int(entry[5])
+            if entry_type == "in":
+                total_profit += entry_profit
+            elif entry_type == "out":
+                total_profit -= entry_profit
 
-    # your code
+    avg_profit = total_profit / item_count
+
+    return avg_profit
+
