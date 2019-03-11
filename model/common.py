@@ -29,34 +29,13 @@ def add(table, record):
 
 
 def update(table, id_, record):
-    """
-    Updates specified record in the table.
-
-    Args:
-        table: list in which record should be updated
-        id_ (str): id of a record to update
-        record (list): updated record
-
-    Returns:
-        list: table with updated record
-    """
     table[int(id_)] = record
 
+    return table
     # your code
 
 
 def remove(table, id_):
-    """
-    Remove a record with a given id from the table.
-
-    Args:
-        table (list): table to remove a record from
-        id_ (str): id of a record to be removed
-
-    Returns:
-        list: Table without specified record.
-    """
-    
     del table[int(id_)]
 
     return table
