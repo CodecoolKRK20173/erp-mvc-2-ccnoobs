@@ -28,6 +28,7 @@ def add(table, record):
         list: Table with a new record
     """
     # your code
+    table = common.add(table,record)
 
     return table
 
@@ -43,7 +44,7 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-
+    table = common.remove(table, id_)
     # your code
 
     return table
@@ -61,7 +62,7 @@ def update(table, id_, record):
     Returns:
         list: table with updated record
     """
-
+    table = common.update(table, id_, record)
     # your code
 
     return table
@@ -80,8 +81,17 @@ def which_year_max(table):
     Returns:
         number
     """
+    max_income_year = int(table[0][3])
+    max_income = float(table[0][5])
 
-    # your code
+    for entry in table:
+        entry_income = float(entry[5])
+        if entry_income > max_income:
+            entry_year = int(entry[3])
+            max_income_year = entry_year
+            max_income = entry_income
+
+    return max_income_year
 
 
 def avg_amount(table, year):
