@@ -39,4 +39,18 @@ def update(table, id_, record):
 
     # your code
 
+def remove(table, id_):
+    """
+    Remove a record with a given id from the table.
+
+    Args:
+        table (list): table to remove a record from
+        id_ (str): id of a record to be removed
+
+    Returns:
+        list: Table without specified record.
+    """
+    
+    del table[int(id_)]
+
     return table
