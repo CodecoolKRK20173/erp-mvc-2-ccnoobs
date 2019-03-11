@@ -22,3 +22,21 @@ def generate_random(table):
     # your code
 
     return generated
+
+def update(table, id_, record):
+    """
+    Updates specified record in the table.
+
+    Args:
+        table: list in which record should be updated
+        id_ (str): id of a record to update
+        record (list): updated record
+
+    Returns:
+        list: table with updated record
+    """
+    table[int(id_)] = record
+
+    # your code
+
+    return table
