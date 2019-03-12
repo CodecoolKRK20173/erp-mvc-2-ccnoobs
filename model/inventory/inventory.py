@@ -100,5 +100,25 @@ def get_average_durability_by_manufacturers(table):
     Returns:
         dict: a dictionary with this structure: { [manufacturer] : [avg] }
     """
+    avg_durability_dict= {}
 
-    # your code
+    for entry in table:
+        entry_manufacturer = entry[2]
+        entry_durability = int(entry[4])
+        if entry_manufacturer in avg_durability_dict:
+            avg_durability_dict[entry_manufacturer] += entry_durability
+        else:
+            avg_durability_dict[entry_manufacturer] = entry_durability
+
+    for key in avg_durability_dict:
+        key_count = 0
+        for entry in table:
+            if key == entry[2]:
+                key_count += 1
+        if key_count == 0:
+            key_count = 1
+        avg_durability_dict[key] = int(avg_durability_dict[key]) / key_count
+
+    return avg_durability_dict
+
+
