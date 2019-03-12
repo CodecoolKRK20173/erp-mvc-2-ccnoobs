@@ -75,4 +75,29 @@ def get_persons_closest_to_average(table):
         list: list of strings (name or names if there are two more with the same value)
     """
 
-    # your code
+
+    list_of_years = []
+        
+    for element in table:
+        element[2] = int(element[2])
+        list_of_years.append(element[2])
+
+    numbers_years = int(len(list_of_years))
+
+    suma = 0
+    for i in range(numbers_years):
+        suma = suma + list_of_years[i]
+    
+    average = suma/numbers_years
+    average = int(average)
+
+    the_closest = min(list_of_years, key=lambda x:abs(x-average))
+
+    the_closest_name = []
+    for element in table:
+        element[2] = int(element[2])
+        the_closest = int(the_closest)
+        if element[2] == the_closest:
+            the_closest_name.append(element[1])
+            
+    return the_closest_name
