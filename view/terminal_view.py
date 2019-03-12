@@ -131,7 +131,12 @@ def print_menu(title, list_options, exit_message):
         None: This function doesn't return anything it only prints to console.
     """
 
-    # your code
+    print(title + ":")
+    option_id = 0
+    for option in list_options:
+        option_id += 1
+        print("("+option_id + ") " + option)
+    print("0. " + exit_message)
 
 
 def get_inputs(list_labels, title):
