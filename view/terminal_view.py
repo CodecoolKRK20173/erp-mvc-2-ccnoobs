@@ -1,5 +1,19 @@
 """ Terminal view module """
 
+def get_print_table_lenghts(table, title_list):
+    lenghts_table = []
+    for entry in title_list:
+        lenghts_table.append(len(entry))
+    for entry in table:
+        id = 0
+        for parameter in entry:
+            parameter_len = len(parameter)
+            if parameter_len > lenghts_table[id]:
+                lenghts_table[id] = parameter_len
+            id +=1
+    return lenghts_table
+
+
 
 def print_table(table, title_list):
     """
@@ -21,8 +35,9 @@ def print_table(table, title_list):
     Returns:
         None: This function doesn't return anything it only prints to console.
     """
+    lenghts_table = get_print_table_lenghts(table, title_list)
+    print(lenghts_table)
 
-    # your goes code
 
 
 def print_result(result, label):
@@ -106,3 +121,5 @@ def print_error_message(message):
     """
 
     # your code
+
+print_table([["a", "b"],["askaskajskassac","d"],["as","sasadadsfaf"]], ["AlphaOne", "Bet"])
