@@ -18,10 +18,26 @@ def generate_random(table):
     """
 
     generated = ''
+    generated_not_on_list = True
+    while generated_not_on_list:
+        generated = random.choice("abcdefghijklmnopqrstuvwxyz") + \
+            random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + \
+            str(random.randrange(9)) + \
+            str(random.randrange(9)) + \
+            random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + \
+            random.choice("abcdefghijklmnopqrstuvwxyz") + \
+            str(random.choice("!$%&()*+,-./:<=>?@[\]^_`{|}~")) + \
+            str(random.choice("!$%&()*+,-./:<=>?@[\]^_`{|}~"))
+        generated_not_on_list = False
+        for element in table:
+            if element[0] == generated:
+                generated_not_on_list = True
 
-    # your code
+
+
 
     return generated
+
 
 def add(table, record):
     table.append(record)
