@@ -14,6 +14,58 @@ def get_print_table_lenghts(table, title_list):
     return lenghts_table
 
 
+def print_table_top_row(lenghts_table):
+    print("┌", end ="")
+    id = 0
+    for entry in lenghts_table:
+        print("─"*entry, end = "")
+        id += 1
+        if id < len(lenghts_table):
+            print("┬", end = "")
+    print("┐")
+
+
+def print_table_inner_row(lenghts_table):
+    print("├", end ="")
+    id = 0
+    for entry in lenghts_table:
+        print("─"*entry, end = "")
+        id += 1
+        if id < len(lenghts_table):
+            print("┼", end = "")
+    print("┤")
+
+
+def print_table_bottom_row(lenghts_table):
+    print("└", end ="")
+    id = 0
+    for entry in lenghts_table:
+        print("─"*entry, end = "")
+        id += 1
+        if id < len(lenghts_table):
+            print("┴", end = "")
+    print("┘")
+
+
+def print_table_entries_row(lenghts_table, table):
+    print("│", end ="")
+    id = 0
+    for entry in table:
+        print(entry.rjust(lenghts_table[id]), end = "")
+        id += 1
+        if id < len(lenghts_table):
+            print("│", end = "")
+    print("│")
+
+
+def print_entries(table, lenghts_table):
+    id = 0
+    for entry in table:
+        print_table_entries_row(lenghts_table, entry)
+        if id < len(table) - 1:
+            print_table_inner_row(lenghts_table)
+        id += 1
+
 
 def print_table(table, title_list):
     """
@@ -36,8 +88,11 @@ def print_table(table, title_list):
         None: This function doesn't return anything it only prints to console.
     """
     lenghts_table = get_print_table_lenghts(table, title_list)
-    print(lenghts_table)
-
+    print_table_top_row(lenghts_table)
+    print_table_entries_row(lenghts_table, title_list)
+    print_table_inner_row(lenghts_table)
+    print_entries(table, lenghts_table)
+    print_table_bottom_row(lenghts_table)
 
 
 def print_result(result, label):
@@ -104,10 +159,12 @@ def get_inputs(list_labels, title):
 
     return inputs
 
+
 def get_choice(options):
     print_menu("Main menu",options, "Exit program")
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
+
 
 def print_error_message(message):
     """
@@ -122,4 +179,4 @@ def print_error_message(message):
 
     # your code
 
-print_table([["a", "b"],["askaskajskassac","d"],["as","sasadadsfaf"]], ["AlphaOne", "Bet"])
+# print_table([["a", "b", "itaka"],["askaskajskassac","d", "urban"],["as","sasadadsfaf","mistfist"]], ["AlphaOne", "Bet","Omega1"])
