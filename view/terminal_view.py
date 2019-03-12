@@ -159,8 +159,11 @@ def get_inputs(list_labels, title):
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
     inputs = []
+    print(title)
+    for label in list_labels:
+        user_input = input(label + ": ")
+        inputs.append(user_input)
 
-    # your code
 
     return inputs
 
@@ -185,3 +188,4 @@ def print_error_message(message):
     # your code
 
 # print_table([["a", "b", "itaka"],["askaskajskassac","d", "urban"],["as","sasadadsfaf","mistfist"]], ["AlphaOne", "Bet","Omega1"])
+# print(get_inputs(["Name", "Surname","inne"], "YOLO!"))
