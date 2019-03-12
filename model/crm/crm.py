@@ -76,13 +76,15 @@ def get_subscribed_emails(table):
         """
 
 
-    list_of_users = []
-    subscription = table[3]
-
+    list_of_emails = []
+    
     for element in table:
+        element[3] = int(element[3])
+        subscription = int(element[3])
         if subscription == 1:
-            list_of_users.append(element)
-            list_of_emails = list_of_users[2]
+            list_of_emails.append(element[2] + ";" + element[1])
+    
+
     return list_of_emails 
 
 
