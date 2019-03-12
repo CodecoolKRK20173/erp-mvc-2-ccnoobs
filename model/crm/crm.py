@@ -12,55 +12,18 @@ Data table structure:
 from model import data_manager
 from model import common
 
-
 def add(table, record):
-    """
-    Add new record to table
-
-    Args:
-        table (list): table to add new record to
-        record (list): new record
-
-    Returns:
-        list: Table with a new record
-    """
-    # your code
-
-    return table
-
-
-def remove(table, id_):
-    """
-    Remove a record with a given id from the table.
-
-    Args:
-        table (list): table to remove a record from
-        id_ (str): id of a record to be removed
-
-    Returns:
-        list: Table without specified record.
-    """
-
-    # your code
-
+    table.append(record)
     return table
 
 
 def update(table, id_, record):
-    """
-    Updates specified record in the table.
+    table[int(id_)] = record
+    return table
 
-    Args:
-        table: list in which record should be updated
-        id_ (str): id of a record to update
-        record (list): updated record
 
-    Returns:
-        list: table with updated record
-    """
-
-    # your code
-
+def remove(table, id_):
+    del table[int(id_)]
     return table
 
 
@@ -79,7 +42,24 @@ def get_longest_name_id(table):
                 the last by alphabetical order of the names)
         """
 
-    # your code
+
+    max_lengh = len(table[0][1])
+    max_id = table[0][0]
+    max_name = table[0][1]
+    for element in table:
+        element_lengh_name = len(element[1])
+        if  element_lengh_name > max_lengh:
+            max_lengh = element_lengh_name
+            max_id = element[0]
+            max_name = element[1]
+        elif element_lengh_name == max_lengh:
+            if max_name < element[1]:
+                max_lengh = element_lengh_name
+                max_id = element[0]
+                max_name = element[1]
+    return max_id
+
+
 
 
 # the question: Which customers has subscribed to the newsletter?
@@ -95,4 +75,14 @@ def get_subscribed_emails(table):
             list: list of strings (where a string is like "email;name")
         """
 
-    # your code
+
+    list_of_users = []
+    subscription = table[3]
+
+    for element in table:
+        if subscription == 1:
+            list_of_users.append(element)
+            list_of_emails = list_of_users[2]
+    return list_of_emails 
+
+
