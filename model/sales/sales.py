@@ -80,9 +80,9 @@ def get_lowest_price_item_id(table):
          string: id
     """
     table_sorted_by_price = table[:]
-    table_sorted_by_price = common.bubble_sort(table_sorted_by_price, False, 2)
+    table_sorted_by_price = common.bubble_sort(table_sorted_by_price, False, 2, False)
     if table_sorted_by_price[0][2] == table_sorted_by_price[1][2]:
-        table = common.bubble_sort(table,False,1)
+        table = common.bubble_sort(table,False,1,False)
         return table[-1][0]
     return table_sorted_by_price[0][0]
 
@@ -103,4 +103,26 @@ def get_items_sold_between(table, month_from, day_from, year_from, month_to, day
         list: list of lists (the filtered table)
     """
 
-    # your code
+    years_range = list(range((int(year_from)+1), int(year_to)))
+    months_range = list(range((int(month_from)+1), int(month_to)))
+    days_range = list(range(int(day_from), int(day_to)+1))
+    days_in_range_by_year = len(years_range)*365
+    
+    year = 365
+    month = 31
+
+
+
+    filtered_table = []
+    filtered_by_years_and_months = []
+    for item in range(len(table)):
+        if table[item][5] in years_range:
+            if table[item][3] in months_range:
+                filtered_by_years_and_months.append(table[item])
+
+
+
+                if table[item][4] in days_range:
+                    filtered_table.append(table[item])
+    return filtered_table
+ 
