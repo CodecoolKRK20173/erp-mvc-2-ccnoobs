@@ -77,9 +77,9 @@ def get_counts_by_manufacturers(table):
     Returns:
          dict: A dictionary with this structure: { [manufacturer] : [count] }
     """
-
-    # your code
-
+    itemDict = {item[2]: item[1] for item in table}
+    return itemDict
+ 
 
 def get_average_by_manufacturer(table, manufacturer):
     """

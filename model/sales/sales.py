@@ -79,12 +79,42 @@ def get_lowest_price_item_id(table):
     Returns:
          string: id
     """
-    table_sorted_by_price = table[:]
-    table_sorted_by_price = common.bubble_sort(table_sorted_by_price, False, 2, False)
+    lowest_price = int(table[0][2])
+    lowest_price_title = table[0][1]
+    lowest_price_id = table[0][0]
+
+    for element in table:
+        element[2] = int(element[2])
+        element_price = element[2]
+        if element_price < lowest_price:
+            lowest_price = element_price
+            lowest_price_title = element[1]
+            lowest_price_id = element[0]
+
+    for element in table:
+        element_price = element[2]
+        element_title = element[1]
+        element_id = element[0]
+        if lowest_price == element_price:
+            if element_title > lowest_price_title:
+                lowest_price = element_price
+                lowest_price_title = element[1]
+                lowest_price_id = element[0]
+    
+    return lowest_price_id
+
+
+    '''table_sorted_by_price = table[:]
+    table_sorted_by_price = common.bubble_sort(table_sorted_by_price, False, 1)
+    temp = []
     if table_sorted_by_price[0][2] == table_sorted_by_price[1][2]:
-        table = common.bubble_sort(table,False,1,False)
-        return table[-1][0]
-    return table_sorted_by_price[0][0]
+        for iterate in table_sorted_by_price:
+            if table_sorted_by_price[iterate][2] == table_sorted_by_price[0][2]:
+                temp.append(table_sorted_by_price[iterate])
+        temp = common.bubble_sort(temp,False,1)
+        return temp[-1][0]
+    print(table_sorted_by_price)
+    return table_sorted_by_price[0][0]'''
 
 def get_items_sold_between(table, month_from, day_from, year_from, month_to, day_to, year_to):
     """
