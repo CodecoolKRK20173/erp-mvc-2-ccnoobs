@@ -184,8 +184,7 @@ def print_error_message(message):
     Returns:
         None: This function doesn't return anything it only prints to console.
     """
-
-    # your code
+    print("Error: " + message)
 
 # print_table([["a", "b", "itaka"],["askaskajskassac","d", "urban"],["as","sasadadsfaf","mistfist"]], ["AlphaOne", "Bet","Omega1"])
 # print(get_inputs(["Name", "Surname","inne"], "YOLO!"))
