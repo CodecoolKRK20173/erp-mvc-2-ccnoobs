@@ -77,8 +77,13 @@ def get_counts_by_manufacturers(table):
     Returns:
          dict: A dictionary with this structure: { [manufacturer] : [count] }
     """
-    itemDict = {item[2]: item[1] for item in table}
-    return itemDict
+    dictionary = {}
+    for element in table:
+        if element[2] in dictionary.keys():
+            dictionary[element[2]] += 1
+        if element[2] not in dictionary.keys():
+            dictionary[element[2]] = 1
+    return dictionary
  
 
 def get_average_by_manufacturer(table, manufacturer):
@@ -93,4 +98,19 @@ def get_average_by_manufacturer(table, manufacturer):
          number
     """
 
-    # your code
+    dictionary = {}
+    for element in table:
+        if element[2] in dictionary.keys():
+            dictionary[element[2]] += 1
+        if element[2] not in dictionary.keys():
+            dictionary[element[2]] = 1
+    
+    dictionary_average = {}
+    for element in table:
+        if element[2] in dictionary_average.keys():
+            dictionary_average[element[2]] += int(element[4])
+        if element[2] not in dictionary_average.keys():
+            dictionary_average[element[2]] = int(element[4])
+    average = dictionary_average[manufacturer] / dictionary[manufacturer]
+
+    return average
