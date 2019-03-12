@@ -79,9 +79,12 @@ def get_lowest_price_item_id(table):
     Returns:
          string: id
     """
-
-    # your code
-
+    table_sorted_by_price = table[:]
+    table_sorted_by_price = common.bubble_sort(table_sorted_by_price, False, 2)
+    if table_sorted_by_price[0][2] == table_sorted_by_price[1][2]:
+        table = common.bubble_sort(table,False,1)
+        return table[-1][0]
+    return table_sorted_by_price[0][0]
 
 def get_items_sold_between(table, month_from, day_from, year_from, month_to, day_to, year_to):
     """
