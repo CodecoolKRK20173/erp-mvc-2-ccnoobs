@@ -103,19 +103,6 @@ def get_lowest_price_item_id(table):
     
     return lowest_price_id
 
-
-    '''table_sorted_by_price = table[:]
-    table_sorted_by_price = common.bubble_sort(table_sorted_by_price, False, 1)
-    temp = []
-    if table_sorted_by_price[0][2] == table_sorted_by_price[1][2]:
-        for iterate in table_sorted_by_price:
-            if table_sorted_by_price[iterate][2] == table_sorted_by_price[0][2]:
-                temp.append(table_sorted_by_price[iterate])
-        temp = common.bubble_sort(temp,False,1)
-        return temp[-1][0]
-    print(table_sorted_by_price)
-    return table_sorted_by_price[0][0]'''
-
 def get_items_sold_between(table, month_from, day_from, year_from, month_to, day_to, year_to):
     """
     Question: Which items are sold between two given dates? (from_date < sale_date < to_date)
