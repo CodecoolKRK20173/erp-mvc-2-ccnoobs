@@ -103,26 +103,18 @@ def get_items_sold_between(table, month_from, day_from, year_from, month_to, day
         list: list of lists (the filtered table)
     """
 
-    years_range = list(range((int(year_from)+1), int(year_to)))
-    months_range = list(range((int(month_from)+1), int(month_to)))
-    days_range = list(range(int(day_from), int(day_to)+1))
-    days_in_range_by_year = len(years_range)*365
-    
-    year = 365
-    month = 31
-
-
+    time_range_from = (int(year_from) * 365) + (int(month_from) * 31) + int(day_from)
+    time_range_to = (int(year_to) * 365) + (int(month_to) * 31) + int(day_to)
+    time_range = list(range(time_range_from + 1, time_range_to))
 
     filtered_table = []
-    filtered_by_years_and_months = []
     for item in range(len(table)):
-        if table[item][5] in years_range:
-            if table[item][3] in months_range:
-                filtered_by_years_and_months.append(table[item])
-
-
-
-                if table[item][4] in days_range:
-                    filtered_table.append(table[item])
+        if ((int(table[item][5]) * 365) + (int(table[item][3]) * 31) + int(table[item][4])) in time_range:
+            filtered_table.append(table[item])
+    for entry in filtered_table:
+        entry[2] = int(entry[2])
+        entry[5] = int(entry[5])
+        entry[3] = int(entry[3])
+        entry[4] = int(entry[4])
     return filtered_table
  
