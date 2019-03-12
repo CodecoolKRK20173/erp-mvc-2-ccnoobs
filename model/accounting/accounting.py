@@ -81,15 +81,23 @@ def which_year_max(table):
     Returns:
         number
     """
-    max_income_year = int(table[0][3])
-    max_income = float(table[0][5])
-
+    years_profit = {}
     for entry in table:
-        entry_income = float(entry[5])
-        if entry_income > max_income:
-            entry_year = int(entry[3])
-            max_income_year = entry_year
-            max_income = entry_income
+        entry[1], entry[2], entry[3], entry[5] = int(entry[1]), int(entry[2]), int(entry[3]), int(entry[5])
+        entry_year = entry[3]
+        entry_type = entry[4]
+        entry_ammount = entry[5]
+        if entry_year in years_profit:
+            if entry_type == "out":
+                years_profit[entry_year] -= entry_ammount
+            elif entry_type == "in":
+                years_profit[entry_year] += entry_ammount
+        else:
+            if entry_type == "out":
+                years_profit[entry_year] = -1 * entry_ammount
+            elif entry_type == "in":
+                years_profit[entry_year] = entry_ammount
+    max_income_year = max(years_profit, key=years_profit.get)
 
     return max_income_year
 
