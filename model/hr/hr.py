@@ -12,9 +12,13 @@ from model import data_manager
 from model import common
 
 
+def get_hr_table_from_file():
+    return data_manager.get_table_from_file('model/hr/persons.csv')
 
 def add(table, record):
-    table.append(record)
+
+    record[1] = int(record[1])
+    table = common.add(table,record)
     return table
 
 
