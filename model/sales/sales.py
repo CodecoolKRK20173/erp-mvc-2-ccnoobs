@@ -14,6 +14,8 @@ Data table structure:
 from model import data_manager
 from model import common
 
+def get_sales_table_from_file():
+    return data_manager.get_table_from_file('model/sales/sales.csv')
 
 def add(table, record):
     """
