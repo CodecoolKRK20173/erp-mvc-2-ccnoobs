@@ -52,7 +52,12 @@ def update(table, id_, record):
         if entry_id_ == id_:
             searched_entry_index = entry_index
         entry_index += 1
-    table[searched_entry_index] = record
+
+    entry_index = 0
+    for entry in table[searched_entry_index]:
+        if record[entry_index] != "":
+            table[searched_entry_index][entry_index] = record[entry_index]
+        entry_index += 1
 
     return table
     # your code
