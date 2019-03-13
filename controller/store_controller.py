@@ -54,6 +54,9 @@ def run():
             table = store.update(table, record_id, records)
         elif choice == "5":
             amount_of_games = store.get_counts_by_manufacturers(table)
+            list_from_dict = amount_of_games.items()
+            manufacturer_count = ["MANUFACTURERS","GAMES"]
+            terminal_view.print_table(list_from_dict, manufacturer_count)
             terminal_view.print_result(amount_of_games, "Amount of different kind of games for each manufacturer")
         elif choice == "6":
             choose_manufacturer = terminal_view.get_inputs(["Manufacturer"], "For which manufacturer would you like to check the average amount of games in stock?")
