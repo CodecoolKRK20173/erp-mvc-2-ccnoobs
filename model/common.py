@@ -46,10 +46,13 @@ def add(table, record):
 
 
 def update(table, id_, record):
+    entry_index = 0
     for entry in table:
         entry_id_ = entry[0]
         if entry_id_ == id_:
-            entry = record
+            searched_entry_index = entry_index
+        entry_index += 1
+    table[searched_entry_index] = record
 
     return table
     # your code
