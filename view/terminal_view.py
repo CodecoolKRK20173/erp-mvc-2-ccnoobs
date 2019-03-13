@@ -89,11 +89,11 @@ def print_table(table, title_list):
         None: This function doesn't return anything it only prints to console.
     """
     lenghts_table = get_print_table_lenghts(table, title_list)
-    print_table_top_row(lenghts_table)
-    print_table_entries_row(lenghts_table, title_list)
-    print_table_inner_row(lenghts_table)
-    print_entries(table, lenghts_table)
-    print_table_bottom_row(lenghts_table)
+    print_table_top_row(lenghts_table) # upper bar
+    print_table_entries_row(lenghts_table, title_list) # headers
+    print_table_inner_row(lenghts_table) # seperator
+    print_entries(table, lenghts_table) # all entries
+    print_table_bottom_row(lenghts_table) # bottom bar
 
 
 def print_result(result, label):
