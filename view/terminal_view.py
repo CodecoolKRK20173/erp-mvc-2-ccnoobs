@@ -174,6 +174,12 @@ def get_choice(options):
     return inputs[0]
 
 
+def get_choice_inner_menu(options, manu_name):
+    print_menu(manu_name, options, "Up")
+    inputs = get_inputs(["Please enter a number: "], "")
+    return inputs[0]
+
+
 def print_error_message(message):
     """
     Displays an error message (example: ``Error: @message``)
