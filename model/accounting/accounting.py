@@ -15,6 +15,9 @@ from model import data_manager
 from model import common
 
 
+def get_accounting_table_from_file():
+    return data_manager.get_table_from_file('model/accounting/items.csv')
+
 
 def add(table, record):
     """
@@ -115,6 +118,7 @@ def avg_amount(table, year):
     """
     item_count = 0
     total_profit = 0
+    year = int(year)
     for entry in table:
         entry_year = int(entry[3])
         if entry_year == year:
@@ -125,7 +129,8 @@ def avg_amount(table, year):
                 total_profit += entry_profit
             elif entry_type == "out":
                 total_profit -= entry_profit
-
+    if item_count == 0:
+        item_count = 1
     avg_profit = total_profit / item_count
 
     return avg_profit
