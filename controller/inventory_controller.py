@@ -49,7 +49,8 @@ def run():
             table = inventory.update(table, record_id, records)
         elif choice == "5":
             available_items = inventory.get_available_items(table)
-            terminal_view.print_result(available_items, "Available items")
+            terminal_view.print_table(available_items, title_list)
+            #terminal_view.print_result(available_items, "Available items")
         elif choice == "6":
             average_durability = inventory.get_average_durability_by_manufacturers(table)
             terminal_view.print_result(average_durability, "Average durability by manufacturer")
