@@ -31,6 +31,7 @@ def add(table, record):
         list: Table with a new record
     """
     # your code
+    record[0], record[1], record[2] = int(record[0]), int(record[1]), int(record[2])
     table = common.add(table,record)
 
     return table
@@ -65,6 +66,7 @@ def update(table, id_, record):
     Returns:
         list: table with updated record
     """
+    record[0], record[1], record[2] = int(record[0]), int(record[1]), int(record[2])
     table = common.update(table, id_, record)
     # your code
 
