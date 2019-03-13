@@ -107,7 +107,7 @@ def print_result(result, label):
         None: This function doesn't return anything it only prints to console.
     """
 
-    print(label + ": " + result)
+    print(str(label) + ": " + str(result))
 
 
 def print_menu(title, list_options, exit_message):
@@ -176,7 +176,7 @@ def get_choice(options):
 
 def get_choice_inner_menu(options, manu_name):
     print_menu(manu_name, options, "Up")
-    inputs = get_inputs(["Please enter a number: "], "")
+    inputs = get_inputs(["Please enter a number"], "")
     return inputs[0]
 
 
