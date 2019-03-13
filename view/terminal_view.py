@@ -135,8 +135,8 @@ def print_menu(title, list_options, exit_message):
     option_id = 0
     for option in list_options:
         option_id += 1
-        print("("+option_id + ") " + option)
-    print("0. " + exit_message)
+        print("(" + str(option_id) + ") " + option)
+    print("(0) " + exit_message)
 
 
 def get_inputs(list_labels, title):
