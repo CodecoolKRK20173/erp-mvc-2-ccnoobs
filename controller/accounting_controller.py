@@ -2,17 +2,8 @@
 from view import terminal_view
 from model.accounting import accounting
 from controller import common
-""" Accounting module
 
-Data table structure:
-    * id (string): Unique and random generated identifier
-        at least 2 special characters (except: ';'), 2 number, 2 lower and 2 upper case letters)
-    * month (number): Month of the transaction
-    * day (number): Day of the transaction
-    * year (number): Year of the transaction
-    * type (string): in = income, out = outflow
-    * amount (int): amount of transaction in USD
-"""
+
 def run():
     """
     Starts this module and displays its menu.
