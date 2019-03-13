@@ -40,6 +40,7 @@ def generate_random(table):
 
 
 def add(table, record):
+    record.insert(0, generate_random(table))
     table.append(record)
     return table
 
