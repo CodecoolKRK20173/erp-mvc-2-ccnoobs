@@ -3,11 +3,11 @@
 def get_print_table_lenghts(table, title_list):
     lenghts_table = []
     for entry in title_list:
-        lenghts_table.append(len(entry))
+        lenghts_table.append(len(str(entry)))
     for entry in table:
         id = 0
         for parameter in entry:
-            parameter_len = len(parameter)
+            parameter_len = len(str(parameter))
             if parameter_len > lenghts_table[id]:
                 lenghts_table[id] = parameter_len
             id +=1
@@ -51,6 +51,7 @@ def print_table_entries_row(lenghts_table, table):
     print("│", end ="")
     id = 0
     for entry in table:
+        entry = str(entry)
         print(entry.rjust(lenghts_table[id]), end = "")
         id += 1
         if id < len(lenghts_table):
