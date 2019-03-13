@@ -54,12 +54,12 @@ def run():
             lowest_price = sales.get_lowest_price_item_id(table)
             terminal_view.print_result(lowest_price, "ID of item that was sold for the lowest price")
         elif choice == "6":
-            year_input = terminal_view.get_inputs(["Day from:","Month from:","Year from:","Month to:","Day to:","Year to:"],"Put dates between which you want to search")
+            year_input = terminal_view.get_inputs(["Day from","Month from","Year from","Day to","Month to","Year to"],"Put dates between which you want to search")
             month_from = year_input[1]
             day_from = year_input[0]
             year_from = year_input[2]
-            month_to = year_input[3]
-            day_to = year_input[4]
+            month_to = year_input[4]
+            day_to = year_input[3]
             year_to = year_input[5]
             items_sold_by_date = sales.get_items_sold_between(table, month_from, day_from, year_from, month_to, day_to, year_to)
             terminal_view.print_table(items_sold_by_date,title_list)
