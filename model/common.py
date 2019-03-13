@@ -61,6 +61,6 @@ def remove(table, id_):
         entry_id_ = entry[0]
         if entry_id_ == id_:
             del table[current_entry_index]
-        entry_index += 1
+        current_entry_index += 1
 
     return table
