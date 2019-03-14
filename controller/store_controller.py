@@ -57,11 +57,16 @@ def run():
             list_from_dict = amount_of_games.items()
             manufacturer_count = ["MANUFACTURERS","GAMES"]
             terminal_view.print_table(list_from_dict, manufacturer_count)
-            terminal_view.print_result(amount_of_games, "Amount of different kind of games for each manufacturer")
         elif choice == "6":
             choose_manufacturer = terminal_view.get_inputs(["Manufacturer"], "For which manufacturer would you like to check the average amount of games in stock?")
             manufacturer = choose_manufacturer[0]
             avg_amount = store.get_average_by_manufacturer(table, manufacturer)
-            terminal_view.print_result(avg_amount, "Average amount of games in stock for {} manufacturer".format(manufacturer))
+            while avg_amount == False:
+                choose_manufacturer = terminal_view.get_inputs(["Put existing manufacturer"], "No such manufacturer in list:")
+                manufacturer = choose_manufacturer[0]
+                avg_amount = store.get_average_by_manufacturer(table, manufacturer)
+            title_two = ["Manufacturer", "Average amount of games in stock"]
+            table_two = [[manufacturer,str(avg_amount)]]
+            terminal_view.print_table(table_two, title_two)
         elif choice != "0":
             terminal_view.print_error_message("There is no such choice.")

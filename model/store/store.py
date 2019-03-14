@@ -2,7 +2,7 @@
 
 Data table structure:
     * id (string): Unique and random generated identifier
-        at least 2 special characters (except: ';'), 2 number, 2 lower and 2 upper case letters)
+        at least 2 special characters (except: ';'), 2 number, 2 casefold and 2 upper case letters)
     * title (string): Title of the game
     * manufacturer (string)
     * price (number): Price in dollars
@@ -103,16 +103,21 @@ def get_average_by_manufacturer(table, manufacturer):
     dictionary = {}
     for element in table:
         if element[2] in dictionary.keys():
-            dictionary[element[2]] += 1
+            dictionary[element[2].casefold()] += 1
         if element[2] not in dictionary.keys():
-            dictionary[element[2]] = 1
+            dictionary[element[2].casefold()] = 1
     
     dictionary_average = {}
     for element in table:
         if element[2] in dictionary_average.keys():
-            dictionary_average[element[2]] += int(element[4])
+            dictionary_average[element[2].casefold()] += int(element[4])
         if element[2] not in dictionary_average.keys():
-            dictionary_average[element[2]] = int(element[4])
+            dictionary_average[element[2].casefold()] = int(element[4])
+
+    manufacturer = manufacturer.casefold()
+    if manufacturer not in dictionary.keys():
+        return False
+
     average = dictionary_average[manufacturer] / dictionary[manufacturer]
 
     return average
