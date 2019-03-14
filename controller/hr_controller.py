@@ -13,7 +13,7 @@ def run():
         None
     """
     table = hr.get_hr_table_from_file()
-    title_list = ["ID", "Name", "BirthYear", "Year"]
+    title_list = ["ID", "Name", "BirthYear"]
     options = ["View records",
                "Add record",
                "Remove record",

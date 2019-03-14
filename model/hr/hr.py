@@ -16,21 +16,17 @@ def get_hr_table_from_file():
     return data_manager.get_table_from_file('model/hr/persons.csv')
 
 def add(table, record):
-
-    record[1] = int(record[1])
     table = common.add(table,record)
     return table
 
 
 def update(table, id_, record):
-    table[int(id_)] = record
-
+    table = common.update(table, id_, record)
     return table
 
 
 def remove(table, id_):
-    del table[int(id_)]
-
+    table = common.remove(table, id_)
     return table
 
 

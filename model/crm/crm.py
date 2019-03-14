@@ -23,12 +23,14 @@ def add(table, record):
 
 
 def update(table, id_, record):
-    table[int(id_)] = record
+    record[1] = int(record[1])
+    table = common.update(table,record)
     return table
 
 
 def remove(table, id_):
-    del table[int(id_)]
+    record[1] = int(record[1])
+    table = common.remove(table,record)
     return table
 
 
