@@ -42,7 +42,10 @@ def run():
         elif choice == "2":
             record = terminal_view.get_inputs(
                 title_list[1::], "Please provide new item data")
-            table = store.add(table, record)
+            if record[2].isdigit() and record[3].isdigit():
+                table = store.add(table, record)
+            else:
+                terminal_view.print_error_message("Wrong input!")
         elif choice == "3":
             id_to_delete_table = terminal_view.get_inputs(
                 ["ID"], "Item to delete")
