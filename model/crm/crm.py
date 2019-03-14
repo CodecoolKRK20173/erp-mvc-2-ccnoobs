@@ -18,19 +18,17 @@ def get_crm_table_from_file():
 
 
 def add(table, record):
-    table.append(record)
+    table = common.add(table,record)
     return table
 
 
 def update(table, id_, record):
-    record[1] = int(record[1])
-    table = common.update(table,record)
+    table = common.update(table, id_, record)
     return table
 
 
 def remove(table, id_):
-    record[1] = int(record[1])
-    table = common.remove(table,record)
+    table = common.remove(table, id_)
     return table
 
 
@@ -95,3 +93,16 @@ def get_subscribed_emails(table):
     return list_of_emails 
 
 
+def proposition_subscription(table):
+
+    list_of_names = []
+    
+    for element in table:
+        element[3] = int(element[3])
+        subscription = int(element[3])
+        if subscription == 0:
+            list_of_names.append(element[1])
+
+    offer = str(list_of_names) + "\n" + "If You are interested our subscription, please contact with us via e-mail."
+
+    return offer

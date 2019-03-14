@@ -20,7 +20,8 @@ def run():
                "Remove record",
                "Update record",
                "ID releated with the longest name",
-               "The emails with subscription"]
+               "The emails with subscription",
+               "The users without subscription"]
 
 
     choice = None
@@ -45,6 +46,9 @@ def run():
         elif choice == "6":
             subscribed_emails = crm.get_subscribed_emails(table)
             terminal_view.print_result(subscribed_emails,"The subscribed emails: ")
+        elif choice == "7":
+            offer = crm.proposition_subscription(table)
+            terminal_view.print_result(offer,"The users without subscription: ")
         elif choice != "0":
             terminal_view.print_error_message("There is no such choice.")
 
