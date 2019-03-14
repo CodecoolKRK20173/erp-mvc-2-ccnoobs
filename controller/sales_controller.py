@@ -55,7 +55,6 @@ def run():
             description = ["ID of item that was sold for the lowest price:"]
             value = [[lowest_price]]
             terminal_view.print_table(value, description)
-            #terminal_view.print_result(lowest_price, "ID of item that was sold for the lowest price")
         elif choice == "6":
             day_from_input = terminal_view.get_inputs(["Day from"],"")
             while not day_from_input[0].isdigit():
