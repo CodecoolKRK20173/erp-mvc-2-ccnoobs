@@ -37,8 +37,14 @@ def run():
         if choice == "1":
             terminal_view.print_table(table, title_list)
         elif choice == "2":
-            record = terminal_view.get_inputs(title_list[1::],"Please provide new item data")
-            table = inventory.add(table, record)
+            data_input_not_correct = True
+            while data_input_not_correct:
+                record = terminal_view.get_inputs(title_list[1::],"Please provide new item data")
+                if record[2].isdigit() and record[3].isdigit():
+                    table = inventory.add(table, record)
+                    data_input_not_correct = False
+                else:
+                    terminal_view.print_error_message("Year and durability should be natural numbers!")
         elif choice == "3":
             id_to_delete_table = terminal_view.get_inputs(["ID"],"Item to delete")
             id_to_delete = id_to_delete_table[0]
