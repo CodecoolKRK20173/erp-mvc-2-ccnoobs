@@ -28,8 +28,38 @@ def run():
         if choice == "1":
             terminal_view.print_table(table, title_list)
         elif choice == "2":
-            record = terminal_view.get_inputs(title_list[1::],"Please provide new item data")
-            table = accounting.add(table, record)
+            record_is_not_correct = True
+            while record_is_not_correct:
+                record = terminal_view.get_inputs(title_list[1::],"Please provide new item data")
+                record_is_not_correct = False
+
+                if record[0].isdigit():
+                    if int(record[0]) < 1 or int(record[0]) > 12:
+                        terminal_view.print_error_message("Incorrect month")
+                        record_is_not_correct = True
+                else:
+                    terminal_view.print_error_message("Month should be natural number")
+                    record_is_not_correct = True
+
+                if record[1].isdigit():
+                    if int(record[1]) < 1 or int(record[1]) > 31:
+                        terminal_view.print_error_message("Incorrect day")
+                        record_is_not_correct = True
+                else:
+                    terminal_view.print_error_message("Day should be natural number")
+                    record_is_not_correct = True
+
+                if not record[2].isdigit():
+                    terminal_view.print_error_message("Year should be natural number")
+                    record_is_not_correct = True
+
+                if not record[4].isdigit():
+                    terminal_view.print_error_message("Durability should be natural number")
+                    record_is_not_correct = True
+
+                if record_is_not_correct == False:
+                    table = accounting.add(table, record)
+
         elif choice == "3":
             id_to_delete_table = terminal_view.get_inputs(["ID"],"Item to delete")
             id_to_delete = id_to_delete_table[0]
