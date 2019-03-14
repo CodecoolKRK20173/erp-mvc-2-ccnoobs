@@ -14,7 +14,7 @@ def run():
         None
     """
     table = accounting.get_accounting_table_from_file()
-    title_list = ["ID", "Month", "Day", "Year", "Type","Amount"]
+    title_list = ["ID", "Month".upper(), "Day".upper(), "Year".upper(), "Type".upper(),"Amount".upper()]
     options = ["View records",
                "Add record",
                "Remove record",
