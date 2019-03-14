@@ -23,7 +23,7 @@ def run():
         None
     """
     table = inventory.get_inventory_table_from_file()
-    title_list = ["ID", "Name", "Manufacturer", "Year", "Durability"]
+    title_list = ["ID", "NAME", "Manufacturer".upper(), "Year".upper(), "Durability".upper()]
     options = ["View records",
                "Add record",
                "Remove record",
@@ -59,7 +59,10 @@ def run():
             #terminal_view.print_result(available_items, "Available items")
         elif choice == "6":
             average_durability = inventory.get_average_durability_by_manufacturers(table)
-            terminal_view.print_result(average_durability, "Average durability by manufacturer")
+            list_from_dict = average_durability.items()
+            dict_headers = ["MANUFACTURER","DURABILITY"]
+            terminal_view.print_table(list_from_dict, dict_headers)
+            # terminal_view.print_result(average_durability, "Average durability by manufacturer")
         elif choice != "0":
             terminal_view.print_error_message("There is no such choice.")
 
