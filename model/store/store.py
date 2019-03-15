@@ -102,16 +102,16 @@ def get_average_by_manufacturer(table, manufacturer):
 
     dictionary = {}
     for element in table:
-        if element[2] in dictionary.keys():
+        if element[2].casefold() in dictionary.keys():
             dictionary[element[2].casefold()] += 1
-        if element[2] not in dictionary.keys():
+        if element[2].casefold() not in dictionary.keys():
             dictionary[element[2].casefold()] = 1
     
     dictionary_average = {}
     for element in table:
-        if element[2] in dictionary_average.keys():
+        if element[2].casefold() in dictionary_average.keys():
             dictionary_average[element[2].casefold()] += int(element[4])
-        if element[2] not in dictionary_average.keys():
+        if element[2].casefold() not in dictionary_average.keys():
             dictionary_average[element[2].casefold()] = int(element[4])
 
     manufacturer = manufacturer.casefold()
