@@ -66,7 +66,7 @@ def update(table, id_, record):
     Returns:
         list: table with updated record
     """
-    record[3], record[1], record[2] = int(record[3]), int(record[1]), int(record[2])
+    # record[3], record[1], record[2] = int(record[3]), int(record[1]), int(record[2])
     table = common.update(table, id_, record)
     # your code
 
